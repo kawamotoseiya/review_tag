@@ -1,0 +1,17 @@
+<%= form_for @book, url: books_path do |f| %>
+<div>
+	<%= f.label :タイトル %>
+	<%= f.text_field :title %>
+</div>
+<div>
+	<%= f.label :内容 %>
+	<%= f.text_field :body %>
+</div>
+<div>
+	<%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
+	<%= text_field_tag 'book[tag_list]', @book.tag_list, :class => "form-control" %>
+</div>
+<div>
+	<%= f.submit "作成" %>
+</div>
+<% end %>
