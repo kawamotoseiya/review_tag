@@ -11,6 +11,18 @@
 	<%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
 	<%= text_field_tag 'book[tag_list]', @book.tag_list, :class => "form-control" %>
 </div>
+<div class="field" id="star">
+	 <%= f.label :rate,'評価',id: "e" %>
+    <%= f.hidden_field :rate, id: :review_star %>
+</div>
+  <script>
+  $('#star').raty({
+    size     : 20,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    scoreName: 'book[rate]',
+  });
+  </script>
 <div>
 	<%= f.submit "作成" %>
 </div>
